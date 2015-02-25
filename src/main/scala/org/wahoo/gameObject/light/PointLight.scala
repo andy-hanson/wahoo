@@ -15,12 +15,12 @@ trait PointLight extends EmitsLight
 		shape.center
 
 	def lightRadius: Scalar
-	def light: Color
+	def lightColor: Color
 
 	def applyLight()
 	{
 		val lightTimesRadiusSquared =
-			light * lightRadius.square
+			lightColor * lightRadius.square
 
 		lightTracker.alterColors(this) { (color, vec) =>
 			color += lightTimesRadiusSquared / (lightPoint distance2To vec)
